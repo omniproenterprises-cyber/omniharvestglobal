@@ -65,7 +65,13 @@
       </nav>
       <div class="cta">
         <a class="btn primary" href="#contact">Request Quote</a>
-        <button class="btn mobilemenu" onclick="toggleMenu()" aria-controls="mnav" aria-expanded="false">Menu</button>
+        <button class="btn mobilemenu" onclick="toggleMenu()" aria-controls="mnav" aria-expanded="false">
+          <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none">
+            <path d="M3 12h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M3 6h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
       </div>
     </div>
     <div id="mnav" hidden class="container" style="padding-bottom:14px">
@@ -107,7 +113,15 @@
     <div class="container">
       <h2>Our Product Portfolio</h2>
       <p class="sub">Premium agricultural products from trusted Indian growers</p>
+      <div class="tabs" aria-label="Product categories">
+        <div class="tablist" role="tablist">
+          <button class="tab-button is-active" role="tab" aria-selected="true" aria-controls="panel-veg" id="tab-veg">Vegetables</button>
+          <button class="tab-button" role="tab" aria-selected="false" aria-controls="panel-makh" id="tab-makhana">SuperFoods</button>
+          <button class="tab-button" role="tab" aria-selected="false" aria-controls="panel-dairy" id="tab-dairy">Dairy Products</button>
+        </div>
+      </div>
 
+      <div id="panel-veg" role="tabpanel" aria-labelledby="tab-veg">
       <div class="products-grid">
         <article class="product-card">
           <div class="product-image">
@@ -196,6 +210,38 @@
           <h3>Peas</h3>
           <p class="product-description">Sweet green peas, fresh & tender.</p>
         </article>
+      </div>
+      </div>
+
+      <div id="panel-makh" role="tabpanel" aria-labelledby="tab-makhana" hidden>
+        <div class="products-grid">
+          <article class="product-card">
+            <div class="product-image">
+              <img src="./assets/images/p12.jpg" alt="Foxnut (Makhana)" loading="lazy">
+            </div>
+            <h3>Foxnut (Makhana)</h3>
+            <p class="product-description">Premium grade foxnuts — cleaned, graded and packed.</p>
+          </article>
+        </div>
+      </div>
+
+      <div id="panel-dairy" role="tabpanel" aria-labelledby="tab-dairy" hidden>
+        <div class="products-grid">
+          <article class="product-card">
+            <div class="product-image">
+              <img src="./assets/images/d2.jpg" alt="Ghee" loading="lazy">
+            </div>
+            <h3>Ghee</h3>
+            <p class="product-description">Rich, aromatic ghee — bulk and retail packs.</p>
+          </article>
+          <article class="product-card">
+            <div class="product-image">
+              <img src="./assets/images/d1.jpg" alt="Paneer" loading="lazy">
+            </div>
+            <h3>Paneer</h3>
+            <p class="product-description">Fresh paneer — hygienically processed and packed.</p>
+          </article>
+        </div>
       </div>
     </div>
   </section>
@@ -538,12 +584,12 @@
             </article>
          </div>
        </div>
-     </div>
-   </section>
+    </div>
+  </section>
 
   <section id="contact" class="contact" aria-labelledby="contact-heading">
     <div class="container">
-      <h2 id="contact-heading">Send Us A Message</h2>
+      <h2 id="contact-heading"> Reach Out to Us</h2>
       <p class="sub">Get in touch with our team for inquiries, quotes, and support.</p>
       
       <div class="contact-grid">
@@ -558,7 +604,7 @@
               </div>
               <div>
                 <strong>Address</strong>
-                <p class="muted">Mada Center 8th floor, 379 Hudson St,<br>BulandShahr, Uttar Pradesh - 203001</p>
+                <p class="muted">Sheetal Ganj, Ansari Road <br>BulandShahr, Uttar Pradesh - 203001<br> India</p>
               </div>
             </div>
             <div class="contact-block">
@@ -567,7 +613,10 @@
               </div>
               <div>
                 <strong>Lets Talk</strong>
-                <p><a class="contact-link" href="tel:+917017980323">+91 7017980323</a></p>
+                <p>
+                  <a class="contact-link" href="tel:+919389289659">Mob No: +91 9389289659</a><br>
+                  <a class="contact-link" href="https://wa.me/918171385519" target="_blank" rel="noopener">WhatsApp No: +91 8171385519</a>
+                </p>
               </div>
             </div>
             <div class="contact-block">
@@ -598,26 +647,26 @@
                 <div class="row">
                   <input type="email" name="email" placeholder="Eg. example@domain.com" required>
                 </div>
-              </label>
+        </label>
 
               <label class="field">
                 <span class="field-label">Enter phone number</span>
                 <div class="row">
                   <input name="phone" placeholder="Eg. +1 800 000000">
                 </div>
-              </label>
+        </label>
 
               <label class="field">
                 <span class="field-label">Message *</span>
                 <div class="row">
                   <textarea name="message" rows="5" placeholder="Write us a message" required></textarea>
                 </div>
-              </label>
-            </div>
+        </label>
+      </div>
             <div class="actions">
               <button class="btn primary" type="submit">Send Message</button>
-            </div>
-          </form>
+      </div>
+    </form>
         </div>
       </div>
     </div>
@@ -691,12 +740,12 @@
         <p class="muted">Make in India • Delivered worldwide. Fresh, compliant and reliable agri exports.</p>
       </div>
       <div>
-        <strong>About Us</strong>
+        <h3 class="footer-contact-title">About Us</h3>
         <p class="muted">We are into Indian agricultural export specializing in fresh produce. Our mission is to connect Indian farmers with global markets through quality, compliance, and reliable supply chains.</p>
       </div>
       <div>
-        <strong>Quick Links</strong>
-        <ul class="muted" style="list-style:none;padding-left:0">
+        <h3 class="footer-contact-title">Quick Links</h3>
+        <ul class="footer-links" style="list-style:none;padding-left:0">
           <li><a href="#products">Products</a></li>
           <li><a href="#process">Process</a></li>
           <li><a href="#usp">Why Us</a></li>
@@ -704,13 +753,16 @@
         </ul>
       </div>
       <div>
-        <h3 class="footer-contact-title">How to reach us</h3>
+        <h3 class="footer-contact-title">Get in Touch</h3>
         <div class="footer-contact-block">
           <div class="footer-contact-icon">
             <svg viewBox="0 0 24 24" fill="none"><path d="M6.6 10.8a12.6 12.6 0 0 0 6.6 6.6l2.2-2.2a1.5 1.5 0 0 1 1.6-.36c1.13.4 2.35.63 3.6.68a1.5 1.5 0 0 1 1.4 1.5V20a2 2 0 0 1-2.2 2c-9.39-.46-16.73-7.8-17.2-17.2A2 2 0 0 1 4 2.6h2c.8 0 1.46.6 1.5 1.4.05 1.25.28 2.47.68 3.6.2.53.07 1.12-.36 1.54l-1.82 1.66Z" stroke="currentColor" stroke-width="1.5"/></svg>
           </div>
           <div class="footer-contact-text">
-            <p>General Enquiry :<br> <a href="tel:+917017980323" class="footer-phone-link">+91 7017980323</a><br>Export Enquiry :<br> <a href="tel:+917017980323" class="footer-phone-link">+91 7017980323</a></p>
+            <p>
+              Mobile: <a href="tel:+919389289659" class="footer-phone-link">+91 9389289659</a><br>
+              WhatsApp: <a href="https://wa.me/918171385519" class="footer-phone-link" target="_blank" rel="noopener">+91 8171385519</a>
+            </p>
           </div>
         </div>  
         <div class="footer-contact-block">
@@ -721,7 +773,6 @@
             <p><a href="mailto:omniharvestglobal@gmail.com" class="footer-email-link">omniharvestglobal@gmail.com</a></p>
           </div>
         </div>
-        <a class="btn primary" href="#contact">Request Quote</a>
       </div>
     </div>
     <div class="container" style="border-top:1px solid rgba(255,255,255,.1);padding:24px 0 48px;text-align:center" class="muted">© <span id="year"></span> OmniHarvestGlobal Exports. All rights reserved.</div>
