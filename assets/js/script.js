@@ -126,6 +126,21 @@ document.addEventListener('DOMContentLoaded', function() {
   if (items[0]) {
     items[0].querySelector('.faq-q').click();
   }
+
+  // Tabs for Products
+  const tabs = document.querySelectorAll('.tab-button');
+  function activateTab(nextId){
+    tabs.forEach(btn => {
+      const panelId = btn.getAttribute('aria-controls');
+      const panel = document.getElementById(panelId);
+      const isActive = btn.id === nextId;
+      btn.classList.toggle('is-active', isActive);
+      btn.setAttribute('aria-selected', String(isActive));
+      if(panel){ panel.hidden = !isActive; }
+    });
+  }
+  tabs.forEach(btn => btn.addEventListener('click', () => activateTab(btn.id)));
+  if(tabs.length){ activateTab('tab-veg'); }
 });
 
 // Basic analytics placeholder (no-op). Replace with Plausible/GA as needed.
