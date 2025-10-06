@@ -45,6 +45,9 @@ header .btn:hover{background:rgba(255,255,255,0.3);transform:translateY(-1px)}
 header .btn.primary:hover{background:#fff;transform:translateY(-1px)}
 header.is-transparent .btn{background:rgba(255,255,255,0.25);border:1px solid rgba(255,255,255,0.4)}
 header.is-transparent .btn.primary{background:rgba(255,255,255,0.95);color:#0d4a2a}
+.header-menu-open #mnav{display:block}
+#mnav a{color:#fff !important; font-weight:800; text-decoration:none}
+#mnav a:hover{color:#fff; opacity:.9; text-decoration:none}
 .btn:hover{box-shadow:var(--shadow)}
 .mobilemenu{display:none;font-size:16px;font-weight:800}
 .skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
@@ -97,6 +100,31 @@ section.alt{background:linear-gradient(135deg, #f8f9fa, #e9ecef);position:relati
 .products-section{background:linear-gradient(135deg, #f5f5f5, #e8e8e8), url('./assets/images/v1.jpg');background-size:cover;background-position:center;padding:80px 0;position:relative}
 h2{font-size:clamp(26px,3vw,34px);margin:0 0 12px;font-weight:900;letter-spacing:-.01em;color:var(--ink-2);display:inline-block;position:relative;padding-bottom:8px}
 h2::after{content:"";position:absolute;left:0;bottom:0;width:64px;height:4px;border-radius:999px;background:linear-gradient(90deg,var(--brand),var(--brand-2),var(--accent));opacity:.9}
+.tabs{margin-top:8px}
+/* Minimal, prominent tab headings */
+.tablist{display:flex;gap:28px;margin:6px 0 18px;padding:0;background:transparent;border:0;box-shadow:none;align-items:flex-end;justify-content:center}
+.tab-button{position:relative;padding:12px 22px;background:#ffffff;border:1px solid var(--line);border-radius:16px;cursor:pointer;color:var(--brand);font-weight:900;letter-spacing:.08em;text-transform:uppercase;font-family:"Segoe UI","Poppins","Montserrat",system-ui,-apple-system,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;font-size:clamp(18px,2.2vw,22px);line-height:1;box-shadow:0 6px 18px rgba(4,55,34,.06)}
+.tab-button:hover{background:rgba(27,127,78,.06)}
+.tab-button:focus-visible{outline:3px solid rgba(27,127,78,.35);outline-offset:2px}
+.tab-button::after{display:none}
+.tab-button.is-active{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;border-color:transparent;transform:translateY(-1px) scale(1.02);box-shadow:0 12px 30px rgba(27,127,78,.28)}
+.tab-button.is-active::before{content:"";position:absolute;inset:-2px;border-radius:18px;box-shadow:0 0 0 2px rgba(27,127,78,.28) inset}
+
+/* Ensure consistent 4-column grid on desktop for all tab panels */
+#products #panel-veg .products-grid,
+#products #panel-makh .products-grid,
+#products #panel-dairy .products-grid{display:grid;grid-template-columns:repeat(4, 1fr);gap:24px;margin-top:20px}
+
+@media (max-width: 1000px){
+  #products #panel-veg .products-grid,
+  #products #panel-makh .products-grid,
+  #products #panel-dairy .products-grid{grid-template-columns:repeat(2, 1fr)}
+}
+@media (max-width: 600px){
+  #products #panel-veg .products-grid,
+  #products #panel-makh .products-grid,
+  #products #panel-dairy .products-grid{grid-template-columns:1fr}
+}
 .sub{
   color:var(--muted);
   margin-bottom:26px;
@@ -287,6 +315,9 @@ footer{background:#0b1a12;color:#cfe4d6}
 footer a{color:#e6f7ee}
 .footer-grid{display:grid;grid-template-columns:1.5fr 1.5fr 1fr 1fr;gap:30px;padding:40px 0}
 .muted{color:#94ac9d}
+.footer-links li{ margin:6px 0 }
+.footer-links a{ color:#cfe4d6; font-size:14px; text-decoration:none }
+.footer-links a:hover{ color:#fff; text-decoration:underline }
 footer .brand{display:flex;align-items:center;gap:12px}
 footer .brand-name{display:flex;flex-direction:column;line-height:1.1;font-family:'Segoe UI', 'Roboto', 'Open Sans', sans-serif}
 footer .brand-line-1{font-size:16px;font-weight:700;color:#cfe4d6;font-style:italic;letter-spacing:0.5px}
@@ -295,20 +326,20 @@ footer .brand-line-2::after{content:'';position:absolute;bottom:-2px;left:0;widt
 
 /* Footer Contact Section */
 .footer-contact-title{
-  font-size:20px;
+  font-size:14px;
   font-weight:700;
   color:#fff;
-  margin:0 0 16px;
-  text-align:center;
+  margin:0 0 12px;
+  text-align:left;
   position:relative;
   padding-bottom:8px;
 }
 .footer-contact-title::after{
   content:"";
   position:absolute;
-  left:50%;
+  left:0;
   bottom:0;
-  transform:translateX(-50%);
+  transform:none;
   width:60px;
   height:3px;
   background:linear-gradient(90deg, #f0b429, #ff8c42);
@@ -340,6 +371,9 @@ footer .brand-line-2::after{content:'';position:absolute;bottom:-2px;left:0;widt
   font-size:14px;
   line-height:1.4;
 }
+.contact-row{display:inline-flex;align-items:center;gap:8px}
+.inline-icon{width:16px;height:16px;display:inline-block;color:#f0b429}
+.inline-icon.whatsapp{color:#25D366}
 .footer-email-link{
   color:#cfe4d6;
   text-decoration:none;
@@ -365,6 +399,8 @@ footer .brand-line-2::after{content:'';position:absolute;bottom:-2px;left:0;widt
   .footer-grid{grid-template-columns:1fr 1fr;gap:20px}
   .navlinks{display:none}
   .mobilemenu{display:inline-flex}
+  .cta .btn.primary{display:none}
+  .hamburger-icon{width:20px;height:20px}
   .hero{height:95vh}
   .hero-content{padding:15px 20px 20px 20px;margin-top:0}
   .hero-cta{flex-direction:column;align-items:center}
