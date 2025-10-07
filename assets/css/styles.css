@@ -6,6 +6,9 @@
   --ring:rgba(27,127,78,.25);
   --radius:18px;
 }
+
+/* Import elegant fonts from Nerone template style */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap');
 *{box-sizing:border-box}
 html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;scroll-behavior:smooth}
 a{color:var(--brand);text-decoration:none}
@@ -15,9 +18,9 @@ header a.brand, header a.brand:hover{color:var(--ink);text-decoration:none}
 .container{max-width:1200px;margin:0 auto;padding:0 20px;position:relative;z-index:2}
 
 /* Header visual states */
-header{position:sticky;top:0;z-index:70;background:linear-gradient(135deg,#1f7a4c,#2ea86b);border-bottom:1px solid rgba(255,255,255,0.12);box-shadow:0 4px 16px rgba(0,0,0,0.08);transition:all 0.3s ease}
-header.is-transparent{background:linear-gradient(135deg,#0d4a2a,#1a5d3a);backdrop-filter:blur(10px) saturate(140%);box-shadow:0 4px 20px rgba(0,0,0,0.15);border-bottom:1px solid rgba(255,255,255,0.2)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:85px}
+header{position:sticky;top:0;z-index:70;background:linear-gradient(135deg, rgba(26,93,58,.9), rgba(45,122,79,.9));backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid rgba(0,0,0,0.1);transition:background .25s ease, box-shadow .25s ease}
+header.is-transparent{background:linear-gradient(135deg, rgba(26,93,58,.9), rgba(45,122,79,.9));box-shadow:0 6px 24px rgba(0,0,0,0.15)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:85px;gap:16px}
 .brand{display:flex;align-items:center;gap:12px;font-weight:900}
 .logo-container{display:flex;align-items:center;gap:12px;position:relative}
 header .brand{color:#fff;text-decoration:none}
@@ -29,24 +32,25 @@ header .brand:focus-visible{outline:2px solid #b9e6cc;outline-offset:4px;border-
 .logo svg{width:24px;height:24px}
 .logo img{width:100%;height:100%;border-radius:50%;object-fit:cover}
 /* Brand name styling */
-.brand-name{display:flex;flex-direction:column;line-height:1.1;font-family:'Segoe UI', 'Roboto', 'Open Sans', sans-serif;color:#fff;text-shadow:0 2px 4px rgba(0,0,0,0.3)}
-.brand-line-1{font-size:18px;font-weight:700;color:#fff;text-shadow:0 2px 4px rgba(0,0,0,0.3);letter-spacing:0.5px;font-style:italic}
-.brand-line-2{font-size:14px;font-weight:900;color:#f0b429;text-shadow:0 2px 4px rgba(0,0,0,0.3);margin-top:1px;text-transform:uppercase;letter-spacing:2px;position:relative}
+.brand-name{display:flex;flex-direction:column;line-height:1.1;font-family:'Segoe UI', 'Roboto', 'Open Sans', sans-serif;color:#fff}
+.brand-line-1{font-size:18px;font-weight:700;color:#fff;letter-spacing:0.5px;font-style:italic;text-shadow:0 1px 2px rgba(0,0,0,.2)}
+.brand-line-2{font-size:14px;font-weight:900;color:#ffd66b;margin-top:1px;text-transform:uppercase;letter-spacing:2px;position:relative}
 .brand-line-2::after{content:'';position:absolute;bottom:-2px;left:0;width:100%;height:2px;background:linear-gradient(90deg, #f0b429, #ff8c42);border-radius:1px}
-.navlinks{display:flex;gap:28px;flex-wrap:wrap}
-.navlinks a{font-weight:700;color:rgba(255,255,255,0.95);transition:color 0.3s ease;font-size:16px;text-shadow:0 1px 2px rgba(0,0,0,0.1);letter-spacing:0.01em;text-transform:none}
-.navlinks a:hover{color:#fff;text-decoration:none;transform:translateY(-1px)}
+.navlinks{display:flex;align-items:center;gap:0.1rem;flex-wrap:nowrap;margin:0 20px;padding:0 8px;position:relative}
+.navlinks::before,.navlinks::after{display:none}
+.navlinks a{font-weight:600;color:#fff;transition:background .2s ease;font-size:14px;letter-spacing:0.5px;text-transform:uppercase;padding:0.4rem 0.6rem;border-radius:8px;text-decoration:none;white-space:nowrap}
+.navlinks a:hover{background:rgba(255,255,255,0.15);color:#fff;text-decoration:none}
+.nav__separator{margin:0 0.2rem;color:rgba(255,255,255,0.4);font-weight:400;font-size:12px}
 .cta{display:flex;gap:10px}
 .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid var(--line);background:#fff;font-weight:800}
 .btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;border-color:transparent}
-header .btn{background:rgba(255,255,255,0.2);color:#fff;border:1px solid rgba(255,255,255,0.3);backdrop-filter:blur(10px);font-size:16px;font-weight:800;padding:12px 18px;text-shadow:0 1px 2px rgba(0,0,0,0.1);transition:all 0.3s ease}
-header .btn.primary{background:rgba(255,255,255,0.9);color:var(--brand);border:1px solid rgba(255,255,255,0.9);font-weight:900}
-header .btn:hover{background:rgba(255,255,255,0.3);transform:translateY(-1px)}
-header .btn.primary:hover{background:#fff;transform:translateY(-1px)}
-header.is-transparent .btn{background:rgba(255,255,255,0.25);border:1px solid rgba(255,255,255,0.4)}
-header.is-transparent .btn.primary{background:rgba(255,255,255,0.95);color:#0d4a2a}
+header .btn{padding:0.7rem 1.5rem;border-radius:999px;font-weight:700;text-decoration:none;border:none;cursor:pointer;font-size:0.9rem;letter-spacing:0.5px;text-transform:uppercase;transition:transform 0.2s ease, box-shadow 0.2s ease;margin-left:12px}
+header .btn.primary{background:linear-gradient(135deg,#f0b429,#ff8c42);color:#fff;box-shadow:0 3px 12px rgba(240,180,41,0.3), inset 0 1px 1px rgba(255,255,255,0.2);border:1px solid #e6a020}
+header .btn.primary:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 6px 18px rgba(240,180,41,0.4), inset 0 1px 2px rgba(255,255,255,0.3)}
 .header-menu-open #mnav{display:block}
-#mnav a{color:#fff !important; font-weight:800; text-decoration:none}
+#mnav{overflow:hidden;max-height:0;opacity:0;transform:translateY(-6px);transition:max-height .28s ease, opacity .2s ease, transform .28s ease}
+#mnav.open{max-height:380px;opacity:1;transform:translateY(0)}
+#mnav a{color:#fff !important; font-weight:500; text-decoration:none}
 #mnav a:hover{color:#fff; opacity:.9; text-decoration:none}
 .btn:hover{box-shadow:var(--shadow)}
 .mobilemenu{display:none;font-size:16px;font-weight:800}
@@ -78,6 +82,11 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1.1;margin:20px 0 16px;font-weight
 @keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.2)}100%{transform:scale(1)}}
 
 section{padding:80px 0;margin:0}
+/* Offset for sticky header when navigating to anchors */
+:target{scroll-margin-top:94px}
+@media (max-width: 1000px){
+  :target{scroll-margin-top:78px}
+}
 section.alt{background:linear-gradient(135deg, #f8f9fa, #e9ecef);position:relative}
 #process{margin-top:0;background:linear-gradient(135deg, #ffffff, #f8f9fa);position:relative;width:100vw;margin-left:calc(-50vw + 50%);padding:80px 0;display:flex;justify-content:center;align-items:center}
 #process::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(circle at 20% 80%, rgba(31, 122, 76, 0.04) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(240, 180, 41, 0.04) 0%, transparent 50%);pointer-events:none;z-index:1}
@@ -98,12 +107,12 @@ section.alt{background:linear-gradient(135deg, #f8f9fa, #e9ecef);position:relati
 #future::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(circle at 80% 20%, rgba(31, 122, 76, 0.04) 0%, transparent 50%), radial-gradient(circle at 20% 80%, rgba(240, 180, 41, 0.04) 0%, transparent 50%);pointer-events:none;z-index:1}
 #future .container{position:relative;z-index:2}
 .products-section{background:linear-gradient(135deg, #f5f5f5, #e8e8e8), url('./assets/images/v1.jpg');background-size:cover;background-position:center;padding:80px 0;position:relative}
-h2{font-size:clamp(26px,3vw,34px);margin:0 0 12px;font-weight:900;letter-spacing:-.01em;color:var(--ink-2);display:inline-block;position:relative;padding-bottom:8px}
+h2{font-size:clamp(26px,3vw,34px);margin:0 0 8px;font-weight:900;letter-spacing:-.01em;color:var(--ink-2);display:inline-block;position:relative;padding-bottom:6px}
 h2::after{content:"";position:absolute;left:0;bottom:0;width:64px;height:4px;border-radius:999px;background:linear-gradient(90deg,var(--brand),var(--brand-2),var(--accent));opacity:.9}
 .tabs{margin-top:8px}
 /* Minimal, prominent tab headings */
 .tablist{display:flex;gap:28px;margin:6px 0 18px;padding:0;background:transparent;border:0;box-shadow:none;align-items:flex-end;justify-content:center}
-.tab-button{position:relative;padding:12px 22px;background:#ffffff;border:1px solid var(--line);border-radius:16px;cursor:pointer;color:var(--brand);font-weight:900;letter-spacing:.08em;text-transform:uppercase;font-family:"Segoe UI","Poppins","Montserrat",system-ui,-apple-system,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;font-size:clamp(18px,2.2vw,22px);line-height:1;box-shadow:0 6px 18px rgba(4,55,34,.06)}
+.tab-button{position:relative;padding:12px 22px;background:#ffffff;border:1px solid var(--line);border-radius:16px;cursor:pointer;color:var(--brand);font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-family:"Segoe UI","Poppins","Montserrat",system-ui,-apple-system,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;font-size:clamp(17px,2.2vw,22px);line-height:1;box-shadow:0 6px 18px rgba(4,55,34,.06)}
 .tab-button:hover{background:rgba(27,127,78,.06)}
 .tab-button:focus-visible{outline:3px solid rgba(27,127,78,.35);outline-offset:2px}
 .tab-button::after{display:none}
@@ -128,15 +137,15 @@ h2::after{content:"";position:absolute;left:0;bottom:0;width:64px;height:4px;bor
   .tablist{justify-content:flex-start;gap:12px;padding:4px 16px;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;position:relative}
   .tablist::-webkit-scrollbar{display:none}
   .tab-button{flex:0 0 auto}
-  /* Better fade effect for scrollable tabs */
-  .tablist::before{content:"";position:absolute;left:0;top:0;bottom:0;width:24px;background:linear-gradient(90deg,rgba(245,245,245,1) 0%,rgba(245,245,245,0.8) 50%,transparent 100%);pointer-events:none;z-index:2}
-  .tablist::after{content:"";position:absolute;right:0;top:0;bottom:0;width:24px;background:linear-gradient(270deg,rgba(245,245,245,1) 0%,rgba(245,245,245,0.8) 50%,transparent 100%);pointer-events:none;z-index:2}
+  /* Remove mobile fade edges to avoid white stripe */
+  .tablist::before,
+  .tablist::after{display:none}
   /* Larger product image on mobile for better visibility */
   .product-image{height:180px}
 }
 .sub{
   color:var(--muted);
-  margin-bottom:26px;
+  margin-bottom:16px;
   font-size:clamp(16px, 2.2vw, 20px);
   line-height:1.6;
   font-weight:500;
@@ -152,7 +161,7 @@ h2::after{content:"";position:absolute;left:0;bottom:0;width:64px;height:4px;bor
 
 /* Products Section */
 .products-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));gap:24px;margin-top:40px}
-.product-card{background:linear-gradient(135deg, rgba(255,255,255,0.9), rgba(248,250,252,0.8));border-radius:12px;padding:24px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,0.08);transition:transform 0.3s ease, box-shadow 0.3s ease;border:1px solid rgba(240,240,240,0.6);backdrop-filter:blur(10px)}
+.product-card{background:linear-gradient(135deg, #ffffff, #f4fbf6);border-radius:12px;padding:24px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,0.08);transition:transform 0.3s ease, box-shadow 0.3s ease;border:1px solid rgba(27,127,78,0.08);backdrop-filter:blur(6px)}
 .product-card:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,0,0,0.12)}
 .product-image{height:140px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;background:#f8f9fa;border-radius:8px;overflow:hidden}
 .product-image img{width:100%;height:100%;object-fit:cover;border-radius:8px}
@@ -214,6 +223,7 @@ h2::after{content:"";position:absolute;left:0;bottom:0;width:64px;height:4px;bor
   display:grid;
   grid-template-columns: repeat(4, minmax(0,1fr));
   gap: 16px;
+  margin-top: 16px;
 }
 @media (max-width: 980px) {
   .grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
@@ -260,16 +270,17 @@ h2::after{content:"";position:absolute;left:0;bottom:0;width:64px;height:4px;bor
 }
 
 .card h3 {
-  margin: 6px 0 6px;
-  font-size: 20px;
+  margin: 6px 0 12px;
+  font-size: 18px;
   letter-spacing: -.01em;
-  text-align: left;
+  text-align: center;
   font-weight: 700;
 }
 .card p {
-  margin: 0;
+  margin: 0 0 8px 0;
   color: var(--muted);
   font-size: 15px;
+  line-height: 1.6;
 }
 
 .thumb {
@@ -435,12 +446,13 @@ footer .brand-line-2::after{content:'';position:absolute;bottom:-2px;left:0;widt
   .tiles{grid-template-columns:1fr;gap:12px}
   .tile{padding:18px}
   .footer-grid{grid-template-columns:1fr;gap:20px}
-  section{padding:60px 0}
-  #process{background-attachment:scroll;margin-top:40px;padding:60px 0}
-  #usp{margin-top:40px;padding:60px 0}
-  #faq{margin-top:40px;padding:60px 0}
-  #contact{margin-top:40px;padding:60px 0}
-  #future{margin-top:40px;margin-bottom:40px;padding:60px 0}
+  section{padding:54px 0}
+  /* Remove unintended gaps between sections on mobile */
+  #process{background-attachment:scroll;margin-top:0;padding:54px 0}
+  #usp{margin-top:0;padding:54px 0}
+  #faq{margin-top:0;padding:54px 0}
+  #contact{margin-top:0;padding:54px 0}
+  #future{margin-top:0;margin-bottom:0;padding:54px 0}
   .container{padding:0 15px}
 }
 
@@ -452,14 +464,19 @@ footer .brand-line-2::after{content:'';position:absolute;bottom:-2px;left:0;widt
   border-radius: calc(18px + 4px);
   box-shadow: 0 10px 24px rgba(3,28,18,.08);
   overflow:hidden;
+  backdrop-filter: blur(2px);
 }
 
 .faq-item + .faq-item{border-top:1px solid rgba(27,127,78,.10)}
 
 .faq-q{
   width:100%; text-align:left; background:#fff; border:0;
-  padding:22px 64px 22px 22px; cursor:pointer; position:relative;
-  font-weight:800; font-size:18px; color:var(--ink-2);
+  padding:16px 56px 16px 18px; cursor:pointer; position:relative;
+  font-weight:700; font-size:17px; line-height:1.35; color:var(--ink-2);
+  transition: background-color .2s ease, box-shadow .2s ease, color .2s ease;
+}
+.faq-q:hover{
+  background: linear-gradient(180deg, #ffffff, #f6fffb);
 }
 .faq-q:focus{outline:3px solid rgba(27,127,78,.28); outline-offset:-3px}
 .faq-q .chev{
@@ -470,11 +487,14 @@ footer .brand-line-2::after{content:'';position:absolute;bottom:-2px;left:0;widt
 .faq-item.open .faq-q .chev{ transform:translateY(-50%) rotate(0deg) }
 
 .faq-a{
-  max-height:0; overflow:hidden; transition:max-height .25s ease;
+  max-height:0; overflow:hidden; 
+  transition:max-height .35s cubic-bezier(.2,.8,.2,1), opacity .25s ease, transform .25s ease;
   background: linear-gradient(180deg, #fff, #f9fffb);
+  opacity:0; 
+  transform: translateY(-4px);
 }
-.faq-a > div{padding: 0 22px 22px 22px; color:var(--muted)}
-.faq-item.open .faq-a{ max-height: 400px } /* large enough for typical answers */
+.faq-a > div{padding: 12px 18px 16px 18px; color:var(--muted)}
+.faq-item.open .faq-a{ max-height: 400px; opacity:1; transform: translateY(0) } /* large enough for typical answers */
 
 /* subtle left bar on open */
 .faq-item.open{ box-shadow: inset 3px 0 0 var(--brand) }
@@ -523,4 +543,110 @@ footer .brand-line-2::after{content:'';position:absolute;bottom:-2px;left:0;widt
 @media (max-width: 900px){
   .contact-grid{ grid-template-columns: 1fr; }
   .contact-left{ min-height:300px; }
+}
+
+/* Desktop-only font styles inspired by Nerone template */
+@media (min-width: 1024px){
+  /* Apply Montserrat for body text on desktop */
+  html, body{
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+  
+  /* Apply Playfair Display for all headings on desktop */
+  h1, h2, h3, h4, h5, h6{
+    font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  }
+  
+  /* Brand name with elegant font */
+  .brand-name{
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+  
+  /* Navigation links */
+  .navlinks a{
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.5px;
+  }
+  
+  /* Buttons */
+  .btn{
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.5px;
+  }
+  
+  /* Hero content */
+  .hero h1{
+    font-family: 'Playfair Display', Georgia, serif;
+    letter-spacing: -0.02em;
+  }
+  
+  .kicker, .lead{
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  /* Product cards */
+  .product-card h3{
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .product-description{
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  /* Tab buttons */
+  .tab-button{
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 1px;
+  }
+  
+  /* Section subtitles */
+  .sub{
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  /* Card content */
+  .card h3{
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+  
+  .card p{
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  /* FAQ */
+  .faq-q{
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.3px;
+  }
+  
+  .faq-a{
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  /* Contact form */
+  .contact-form label, .field-label{
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  /* Tiles */
+  .tile strong{
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.5px;
+  }
+  
+  /* Footer */
+  footer{
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  footer .brand-name{
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+  
+  .footer-contact-title{
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.5px;
+  }
 }
