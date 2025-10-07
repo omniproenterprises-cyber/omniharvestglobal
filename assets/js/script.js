@@ -5,9 +5,13 @@ function toggleMenu(){
   const btn = document.querySelector('button.mobilemenu');
   if(isHidden){
     m.removeAttribute('hidden');
+    // animate open
+    requestAnimationFrame(()=> m.classList.add('open'));
     if(btn) btn.setAttribute('aria-expanded','true');
   } else {
-    m.setAttribute('hidden','');
+    // animate close then hide
+    m.classList.remove('open');
+    setTimeout(()=> m.setAttribute('hidden',''), 280);
     if(btn) btn.setAttribute('aria-expanded','false');
   }
 }
@@ -69,10 +73,10 @@ window.addEventListener('load', () => {
     hero.addEventListener('mouseleave', startCarousel);
   }
 
-  // Header transparency on scroll
+  // Header scroll effect
   const headerEl = document.querySelector('header');
   const toggleHeaderState = () => {
-    if(window.scrollY > 12){
+    if(window.scrollY > 8){
       headerEl.classList.add('is-transparent');
     } else {
       headerEl.classList.remove('is-transparent');
@@ -127,6 +131,17 @@ document.addEventListener('DOMContentLoaded', function() {
     items[0].querySelector('.faq-q').click();
   }
 
+  // Recompute open panel height on resize for smooth transitions
+  const recalcOpenHeight = () => {
+    const open = document.querySelector('.faq-item.open .faq-a');
+    if(open){
+      open.style.maxHeight = 'none';
+      const h = open.scrollHeight;
+      open.style.maxHeight = h + 'px';
+    }
+  };
+  window.addEventListener('resize', recalcOpenHeight, { passive: true });
+
   // Tabs for Products
   const tabs = document.querySelectorAll('.tab-button');
   function activateTab(nextId){
@@ -141,6 +156,17 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   tabs.forEach(btn => btn.addEventListener('click', () => activateTab(btn.id)));
   if(tabs.length){ activateTab('tab-veg'); }
+
+  // Auto-close mobile nav when clicking a link
+  const mobileNav = document.getElementById('mnav');
+  if(mobileNav){
+    mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      mobileNav.classList.remove('open');
+      setTimeout(()=> mobileNav.setAttribute('hidden',''), 280);
+      const btn = document.querySelector('button.mobilemenu');
+      if(btn) btn.setAttribute('aria-expanded','false');
+    }));
+  }
 });
 
 // Basic analytics placeholder (no-op). Replace with Plausible/GA as needed.
