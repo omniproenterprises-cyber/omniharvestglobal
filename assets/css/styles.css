@@ -112,7 +112,7 @@ h2::after{content:"";position:absolute;left:0;bottom:0;width:64px;height:4px;bor
 .tabs{margin-top:8px}
 /* Minimal, prominent tab headings */
 .tablist{display:flex;gap:28px;margin:6px 0 18px;padding:0;background:transparent;border:0;box-shadow:none;align-items:flex-end;justify-content:center}
-.tab-button{position:relative;padding:12px 22px;background:#ffffff;border:1px solid var(--line);border-radius:16px;cursor:pointer;color:var(--brand);font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-family:"Segoe UI","Poppins","Montserrat",system-ui,-apple-system,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;font-size:clamp(17px,2.2vw,22px);line-height:1;box-shadow:0 6px 18px rgba(4,55,34,.06)}
+.tab-button{position:relative;padding:12px 22px;background:#ffffff;border:1px solid var(--line);border-radius:16px;cursor:pointer;color:var(--brand);font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-family:"Segoe UI","Poppins","Montserrat",system-ui,-apple-system,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;font-size:clamp(17px,2.2vw,22px);line-height:1;box-shadow:0 6px 18px rgba(4,55,34,.06)}
 .tab-button:hover{background:rgba(27,127,78,.06)}
 .tab-button:focus-visible{outline:3px solid rgba(27,127,78,.35);outline-offset:2px}
 .tab-button::after{display:none}
@@ -168,6 +168,58 @@ h2::after{content:"";position:absolute;left:0;bottom:0;width:64px;height:4px;bor
 @media (max-width: 600px){
   .product-image{height:160px}
   .product-image img{object-fit:contain}
+  
+  /* Mobile 2-column layout as per image */
+  .product-card{
+    display:flex;
+    align-items:stretch;
+    gap:0;
+    text-align:left;
+    padding:0;
+    min-height:140px;
+  }
+  
+  .product-card:nth-child(odd){
+    flex-direction:row;
+  }
+  
+  .product-card:nth-child(even){
+    flex-direction:row-reverse;
+  }
+  
+  .product-image{
+    flex:1;
+    height:140px;
+    margin-bottom:0;
+    border-radius:12px 0 0 12px;
+  }
+  
+  .product-card:nth-child(even) .product-image{
+    border-radius:0 12px 12px 0;
+  }
+  
+  .product-content{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:16px;
+    text-align:center;
+  }
+  
+  .product-card h3{
+    font-size:16px;
+    margin:0 0 8px 0;
+    text-align:center;
+  }
+  
+  .product-description{
+    font-size:13px;
+    line-height:1.4;
+    text-align:center;
+    min-height:auto;
+  }
 }
 .product-card h3{font-size:16px;font-weight:700;color:#2c3e50;margin:0 0 12px;text-transform:uppercase;letter-spacing:0.5px}
 .product-description{color:#6c757d;font-size:14px;line-height:1.5;margin:0;min-height:42px}
